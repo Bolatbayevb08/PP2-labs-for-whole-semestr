@@ -7,10 +7,9 @@ print(type(y))
 #3 example string
 s = "Python"
 print(type(s))
-#4 example tuple
-coords = (10, 20)
-print(coords)
-print(type(coords))
+#4 example 
+x = 7
+print(type(x))
 #5 example list
 my_list = [1, 2, 3]
 print(my_list)
