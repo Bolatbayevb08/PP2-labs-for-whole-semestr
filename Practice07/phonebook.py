@@ -1,8 +1,6 @@
 import csv
 from connect import connect
 
-
-# 1. Создание таблицы
 def create_table():
     conn = connect()
     cur = conn.cursor()
@@ -20,8 +18,6 @@ def create_table():
     conn.close()
     print("Table created successfully.")
 
-
-# 2. Добавление контактов из CSV
 def insert_from_csv(filename):
     conn = connect()
     cur = conn.cursor()
@@ -40,8 +36,6 @@ def insert_from_csv(filename):
     conn.close()
     print("Contacts imported from CSV successfully.")
 
-
-# 3. Добавление контакта вручную
 def insert_from_console():
     name = input("Enter name: ")
     phone = input("Enter phone: ")
@@ -59,8 +53,6 @@ def insert_from_console():
     conn.close()
     print("Contact added successfully.")
 
-
-# 4. Показать все контакты
 def show_all_contacts():
     conn = connect()
     cur = conn.cursor()
@@ -75,8 +67,6 @@ def show_all_contacts():
     cur.close()
     conn.close()
 
-
-# 5. Поиск по имени
 def search_by_name():
     name = input("Enter name to search: ")
 
@@ -97,8 +87,6 @@ def search_by_name():
     cur.close()
     conn.close()
 
-
-# 6. Поиск по префиксу телефона
 def search_by_phone_prefix():
     prefix = input("Enter phone prefix: ")
 
@@ -119,8 +107,6 @@ def search_by_phone_prefix():
     cur.close()
     conn.close()
 
-
-# 7. Обновление контакта
 def update_contact():
     old_name = input("Enter current name of contact to update: ")
     new_name = input("Enter new name (leave blank if no change): ")
@@ -155,8 +141,6 @@ def update_contact():
     conn.close()
     print("Contact updated successfully.")
 
-
-# 8. Удаление контакта
 def delete_contact():
     choice = input("Delete by (1) name or (2) phone? ")
 
@@ -178,7 +162,6 @@ def delete_contact():
     print("Contact deleted successfully.")
 
 
-# 9. Главное меню
 def menu():
     while True:
         print("\n--- PHONEBOOK MENU ---")
