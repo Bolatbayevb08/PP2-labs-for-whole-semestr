@@ -36,44 +36,28 @@ def insert_from_csv(filename):
     conn.close()
     print("Contacts imported from CSV successfully.")
 
-<<<<<<< HEAD
-=======
-
-# 3. Добавление контакта вручную
-
->>>>>>> 027db0b (dsfbhsdf)
 def insert_from_console():
-    contacts = []
-
-    while True:
-        name = input("Enter name: ")
-        phone = input("Enter phone: ")
-
-        contacts.append((name, phone))
-
-        more = input("Add another contact? (yes/no): ").lower()
-        if more != "yes":
-            break
+    name = input("Enter name: ")
+    phone = input("Enter phone: ")
 
     conn = connect()
     cur = conn.cursor()
 
-    cur.executemany("""
+    cur.execute("""
         INSERT INTO phonebook (first_name, phone)
-        VALUES (%s, %s)
-        ON CONFLICT (phone) DO NOTHING;
-    """, contacts)
+        VALUES (%s, %s);
+    """, (name, phone))
 
     conn.commit()
     cur.close()
     conn.close()
-    print("Contacts added successfully.")
+    print("Contact added successfully.")
 
 def show_all_contacts():
     conn = connect()
     cur = conn.cursor()
 
-    cur.execute("SELECT * FROM phonebook ORDER BY id")
+    cur.execute("SELECT * FROM phonebook ORDER BY id;")
     rows = cur.fetchall()
 
     print("\n--- ALL CONTACTS ---")
